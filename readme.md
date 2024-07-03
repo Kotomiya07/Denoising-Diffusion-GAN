@@ -25,6 +25,10 @@ For large datasets, we store the data in LMDB datasets for I/O efficiency. Check
 We use the following commands on each dataset for training denoising diffusion GANs.
 
 #### CIFAR-10 ####
+We train Denoising Diffusion GANs on CIFAR-10 using 2 nodes 1 GPU / node.
+```
+python -m torch.distributed.launch --nproc_per_node=1 --nnodes=2 --node_rank=0 --master_addr="127.0.0.1" --master_port=6020  train_ddgan.py --dataset cifar10 --exp ddgan_cifar10_exp1 --num_channels 3 --num_channels_dae 128 --num_timesteps 4 --num_res_blocks 2 --batch_size 64 --num_epoch 1800 --ngf 64 --nz 100 --z_emb_dim 256 --n_mlp 4 --embedding_type positional --r1_gamma 0.02 --lr_d 1.25e-4 --lr_g 1.6e-4 --lazy_reg 15 --num_process_per_node 1 --ch_mult 1 2 2 2 --save_content --num_proc_node 2
+```
 
 We train Denoising Diffusion GANs on CIFAR-10 using 1 80-GB H100 GPU. 
 ```
