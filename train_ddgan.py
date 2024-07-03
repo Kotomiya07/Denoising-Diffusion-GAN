@@ -476,7 +476,7 @@ def cleanup():
 #%%
 if __name__ == '__main__':
     parser = argparse.ArgumentParser('ddgan parameters')
-    parser.add_argument('--seed', type=int, default=1024,
+    parser.add_argument('--seed', type=int, default=42,
                         help='seed used for initialization')
     
     parser.add_argument('--resume', action='store_true',default=False)
@@ -531,7 +531,7 @@ if __name__ == '__main__':
                             help='scale of fourier transform')
     parser.add_argument('--not_use_tanh', action='store_true',default=False)
     
-    #geenrator and training
+    #generator and training
     parser.add_argument('--exp', default='experiment_cifar_default', help='name of experiment')
     parser.add_argument('--dataset', default='cifar10', help='name of dataset')
     parser.add_argument('--nz', type=int, default=100)
