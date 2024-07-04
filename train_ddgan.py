@@ -570,7 +570,7 @@ if __name__ == '__main__':
                         help='number of gpus')
     parser.add_argument('--node_rank', type=int, default=0,
                         help='The index of node.')
-    parser.add_argument('--local_rank', type=int, default=0,
+    parser.add_argument('--local-rank', type=int, default=0,
                         help='rank of process in the node')
     parser.add_argument('--master_address', type=str, default='127.0.0.1',
                         help='address for master')
