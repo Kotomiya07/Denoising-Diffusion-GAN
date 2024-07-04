@@ -24,7 +24,7 @@ from torchvision.datasets import CIFAR10
 from datasets_prep.lmdb_datasets import LMDBDataset
 from datasets_prep.lsun import LSUN
 from datasets_prep.stackmnist_data import (StackedMNIST,
-                                           _data_transforms_stacked_mnist)
+                                            _data_transforms_stacked_mnist)
 
 
 def copy_source(file, output_dir):
@@ -559,7 +559,7 @@ if __name__ == '__main__':
     parser.add_argument('--not_use_tanh', action='store_true',default=False)
     
     #generator and training
-    parser.add_argument('--exp', default='experiment_cifar_default', help='name of experiment')
+    parser.add_argument('--exp', help='name of experiment', required=True)
     parser.add_argument('--dataset', default='cifar10', help='name of dataset')
     parser.add_argument('--nz', type=int, default=100)
     parser.add_argument('--num_timesteps', type=int, default=4)
@@ -587,8 +587,8 @@ if __name__ == '__main__':
                         help='lazy regulariation.')
 
     parser.add_argument('--save_content', action='store_true',default=False)
-    parser.add_argument('--save_content_every', type=int, default=50, help='save content for resuming every x epochs')
-    parser.add_argument('--save_ckpt_every', type=int, default=25, help='save ckpt every x epochs')
+    parser.add_argument('--save_content_every', type=int, default=5, help='save content for resuming every x epochs')
+    parser.add_argument('--save_ckpt_every', type=int, default=5, help='save ckpt every x epochs')
 
     ###ddp
     parser.add_argument('--num_proc_node', type=int, default=1,
