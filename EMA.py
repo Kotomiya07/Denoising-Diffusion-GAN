@@ -60,6 +60,9 @@ class EMA(Optimizer):
                 params[p.shape]['idx'] += 1
 
         return retval
+    
+    def state_dict(self):
+        return super(EMA, self).state_dict()
 
     def load_state_dict(self, state_dict):
         super(EMA, self).load_state_dict(state_dict)
